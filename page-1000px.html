@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        #login { margin: 20px auto; width: 300px; }
+        #content { display: none; }
+        iframe { width: 100%; height: 1000px; border: none; } /* Adjust height as needed */
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h2>Enter Password to Access Dashboard</h2>
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error" style="color: red; display: none;">Incorrect password!</p>
+    </div>
+    <div id="content">
+        <h2>Dashboard</h2>
+        <iframe src="http://146.190.174.79/dash20min.html"></iframe>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var pass = document.getElementById('password').value;
+            if (pass === 'password123') {  // Change 'password123' to your desired password
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
